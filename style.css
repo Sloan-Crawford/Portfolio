@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+html {
+  font-size: 100%;
+}
+
+:root {
+  --borderRadius: 0.25rem;
+  --letterSpacing: 1px;
+  --transition: 0.3s ease-in-out all;
+
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* fonts  */
+  --headingFont: 'Roboto', sans-serif;
+  --bodyFont: 'Nunito', sans-serif;
+  --smallText: 0.7em;
+
+  /* colors */
+  --crimson: rgb(213, 18, 70);
+  --crimson-o: rgba(213, 18, 70, 0.8);
+
+  /* transition */
+  --transition: all 0.3s ease;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 4rem 0 1rem;
+  margin: auto;
+}
+
+/* -------navbar------- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 0.3rem 0;
+  background: var(--crimson);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+  border-radius: 10px;
+  margin: 0.3rem 0 0.1rem;
+}
+
+.navbar .logo img:hover {
+  transition: all 0.2s ease-in;
+  transform: scale(1.05);
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .menu li a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 1.7rem;
+}
+
+.navbar .menu li a:hover {
+  color: cyan;
+  transition: var(--transition);
+}
+
+/* -------Home Section ------- */
+.home {
+  display: flex;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url(./images/sloan-banner-outdoors.jpg) no-repeat center center fixed;
+  min-height: 85vh;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.home .max-width {
+  position: relative;
+  left: 12rem;
+}
+
+.home-content {
+  background: var(--crimson-o);
+  border-radius: 10px;
+  padding: 0.7rem;
+  box-shadow: var(--shadow-4);
+}
+
+.home-content .text-1 {
+  font-size: 1.8rem;
+}
+
+.home-content .text-2 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  margin-left: -3px;
+}
+
+.home-content .text-3 {
+  font-size: 3rem;
+  margin: 5px 0;
+}
+
+.home-content .text-3 span {
+  background: linear-gradient(
+    0deg,
+    hsla(199, 100%, 50%, 0.7) 10%,
+    hsla(138, 100%, 46%, 0.6) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  font-weight: 700;
+}
+
+/* -------navbar------- */
+
+/* -------navbar------- */
+
+/* -------navbar------- */

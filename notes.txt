@@ -1,0 +1,3 @@
+for jQuery:
+-the $() function is as synonym for jQuery() in the jQuery Javascript framework. 
+-It returns a jQuery object (or objects)

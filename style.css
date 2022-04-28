@@ -9,8 +9,10 @@
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
 }
 
+/* -------Root Styling------- */
 :root {
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
@@ -26,8 +28,8 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
   /* fonts  */
-  --headingFont: 'Roboto', sans-serif;
-  --bodyFont: 'Nunito', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-ubuntu: 'Ubuntu', sans-serif;
   --smallText: 0.7em;
 
   /* colors */
@@ -38,10 +40,75 @@ html {
   --transition: all 0.3s ease;
 }
 
+/* -------Similar Content Styling------- */
+section {
+  padding: 100px 0;
+}
+
 .max-width {
   max-width: 1300px;
   padding: 0 4rem 0 1rem;
   margin: auto;
+}
+
+.about,
+.skills,
+.projects,
+.contact,
+footer {
+  font-family: var(--font-poppins);
+}
+.about .about-content,
+.skills .skills-content,
+.contact .contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+section .title {
+  position: relative;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 500;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  font-family: var(--font-ubuntu);
+}
+section .title::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 180px;
+  height: 3px;
+  background: #111;
+  transform: translateX(-50%);
+}
+section .title::after {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  font-size: 1.2rem;
+  color: crimson;
+  padding: 0 5px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+/* -------custom scroll bar------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--crimson-o);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* -------navbar------- */
@@ -49,8 +116,29 @@ html {
   position: fixed;
   width: 100%;
   padding: 0.3rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  font-family: var(--font-ubuntu);
+  transition: var(--transition);
+  z-index: 100;
+}
+
+.navbar.sticky {
+  /* padding: 1rem 0; */
   background: var(--crimson);
-  font-family: 'Ubuntu', sans-serif;
+  justify-content: right;
+}
+
+.navbar.sticky .logo img {
+  max-width: 160px;
+  margin: 0.3rem 0 0 0;
+}
+
+.navbar.sticky .max-width {
+  justify-content: space-between;
+}
+
+.navbar.sticky .menu {
+  /* margin-right: 1rem; */
 }
 
 .navbar .max-width {
@@ -65,7 +153,7 @@ html {
   height: auto;
   width: auto\9; /* ie8 */
   border-radius: 10px;
-  margin: 0.3rem 0 0.1rem;
+  /* margin: 0.3rem 0 0.1rem; */
 }
 
 .navbar .logo img:hover {
@@ -90,31 +178,40 @@ html {
   transition: var(--transition);
 }
 
-/* -------Home Section ------- */
+/* menu btn */
+.menu-btn {
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+/* -------Home Section------- */
 .home {
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
     url(./images/sloan-banner-outdoors.jpg) no-repeat center center fixed;
-  min-height: 85vh;
+  min-height: 95vh;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--font-ubuntu);
+  overflow: hidden;
 }
 
 .home .max-width {
-  position: relative;
-  left: 12rem;
+  padding: 90px 0 0 2rem;
 }
 
 .home-content {
   background: var(--crimson-o);
   border-radius: 10px;
-  padding: 0.7rem;
+  padding: 1rem;
   box-shadow: var(--shadow-4);
+  text-align: center;
 }
 
 .home-content .text-1 {
@@ -124,12 +221,12 @@ html {
 .home-content .text-2 {
   font-size: 4.5rem;
   font-weight: 600;
-  margin-left: -3px;
+  /* margin-left: -3px; */
 }
 
 .home-content .text-3 {
-  font-size: 3rem;
-  margin: 5px 0;
+  font-size: 2.5rem;
+  /* margin: 5px 0; */
 }
 
 .home-content .text-3 span {
@@ -143,10 +240,138 @@ html {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   font-weight: 700;
+  font-size: 3rem;
 }
 
-/* -------navbar------- */
+.home .hire-container {
+  display: flex;
+  justify-content: center;
+}
+.home .hire-container a {
+  background: #fff;
+  color: var(--crimson);
+  font-size: 2rem;
+  padding: 0.6rem 2rem;
+  margin: 0.5rem 0 2rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-4);
+  transition: var(--transition);
+}
 
-/* -------navbar------- */
+.home a:hover {
+  background: var(--crimson);
+  color: #fff;
+}
+
+/* -------About Section------- */
+.about .title {
+  font-family: var(--font-ubuntu);
+  text-align: center;
+}
+
+.about .about-content .right img {
+  max-width: 100%;
+  height: auto;
+  /* object-fit: cover; */
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-4);
+}
+
+/* -------Responsive------- */
+@media screen and (max-width: 920px) {
+  .max-width {
+    padding: 0 1.2rem;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 100;
+    transition: var(--transition);
+  }
+
+  .menu-btn.rotate {
+    transform: rotate(270deg);
+  }
+
+  .menu-btn i.active:before {
+    content: '/f00d';
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: var(--crimson-o);
+    text-align: center;
+    padding-top: 80px;
+    transition: var(--transition);
+  }
+
+  .navbar .menu.active {
+    left: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 1.2rem 0;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .max-width {
+    padding: 0 1.2rem;
+  }
+
+  .home .max-width {
+    padding: 85px 0 0 0;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 3.5rem;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 2rem;
+  }
+
+  .home a {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home .home-content .text-2 {
+    font-size: 3rem;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 1.7rem;
+  }
+
+  .about .about-content img {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .home .home-content .text-1 {
+    font-size: 1.5rem;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 2.5rem;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 1.5rem;
+  }
+}
 
 /* -------navbar------- */

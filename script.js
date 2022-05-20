@@ -1,11 +1,11 @@
 // ----- Select Elements -----
-// For Modal
-const open = document.getElementById('open');
-const modalContainer = document.getElementById('modal_container');
-const close = document.getElementById('close');
+// For Project Modals
+let buttons = document.querySelectorAll('.open-button');
+let modals = document.querySelectorAll('.modal-container');
 
 // For Modal slider buttons
 const slides = document.querySelectorAll('.slide');
+
 const nextBtn = document.querySelector('.nextBtn');
 const prevBtn = document.querySelector('.prevBtn');
 
@@ -19,25 +19,99 @@ $(document).ready(function() {
   }
 
   // show/hide scroll to top button
+  if(this.scrollY > 500){
+    $('.scroll-up-btn').addClass("show");
+  }else{
+    $('.scroll-up-btn').removeClass("show");
+  }
  });
+
+// slide-up button functionality:
+$('.scroll-up-btn').click(function(){
+  $('html').animate({scrollTop: 0});
+  // removing smooth scroll on slide-up button click
+  $('html').css("scrollBehavior", "auto");
+});
+
+    $('.navbar .menu li a').click(function(){
+        // applying again smooth scroll on menu items click
+        $('html').css("scrollBehavior", "smooth");
+    });
+
 
  // navbar menu toggle
  $('.menu-btn').click(function() {
   $('.navbar .menu').toggleClass("active");
-  $('.menu-btn').toggleClass("rotate");
+  $('.menu-btn').toggleClass("active");
  })
 })
 
-open.addEventListener('click', () => {
- modalContainer.classList.add('show');
+    // typing text animation script
+    var typed = new Typed(".typing", {
+        strings: ["Developer...", "Collaborator...", "Designer...", "Gymnast..."],
+        typeSpeed: 50,
+        backDelay: 1000,
+        backSpeed: 60,
+        loop: true,
+        showCursor: false,
+    });
+    
+    // typing text animation script
+    var typed = new Typed(".typing-2", {
+        strings: ["Developer...", "Collaborator...", "Designer...", "Gymnast..."],
+        typeSpeed: 50,
+        backDelay: 1000,
+        backSpeed: 60,
+        loop: true,
+        showCursor: false,
+    });
+
+
+// Project Section Modals
+function showModal(id) {
+  let m = document.getElementById(id);
+  m.classList.add('visible');
+}
+
+function hideModals() {
+  modals.forEach(m => {
+    m.classList.remove('visible');
+  });
+}
+
+buttons.forEach(b => {
+  b.addEventListener('click', event => {
+    hideModals();
+    showModal(b.dataset.modal);
+    // console.log(b.dataset.modal);
+  });
 });
 
-close.addEventListener('click', () => {
- modalContainer.classList.remove('show');
+modals.forEach(m => {
+  let x = m.querySelector('button.close');
+  x.addEventListener('click', hideModals);
 });
 
+
+// --------------------My attempt--------------------------:
 
 // Modal slider (for screenshots)
+function showSlides(id) {
+  let m = document.getElementById(id);
+  console.log(m);
+  m.classList.add('currentModal');
+  console.log(currentModal);
+}
+
+buttons.forEach(function(b) {
+  b.addEventListener('click', function() {
+    // hideModals();
+    showSlides(b.dataset.modal);
+  });
+});
+const currentModal = document.querySelectorAll('.currentModal');
+console.log(currentModal);
+
 slides.forEach(function(slide, index){
  slide.style.left = `${index * 100}%`; // translate slide 100% left
 });
@@ -47,12 +121,14 @@ nextBtn.addEventListener('click', function(){
  counter++;
  carousel();
 });
+
 prevBtn.addEventListener('click', function(){
  counter--;
   carousel();
 });
 
 function carousel(){
+ // working with slides
  if(counter === slides.length){
   counter=0;
  }
@@ -60,8 +136,41 @@ function carousel(){
   counter = slides.length - 1;
  }
 
- // working with buttons
+ // working with slider buttons
  slides.forEach(function(slide){
   slide.style.transform = `translateX(-${counter * 100}%)`
  });
 }
+
+// ----------------------Works with all slides--------------------------:
+
+// slides.forEach(function(slide, index){
+
+//  slide.style.left = `${index * 100}%`; // translate slide 100% left
+// });
+
+// let counter = 0;
+// nextBtn.addEventListener('click', function(){
+//  counter++;
+//  carousel();
+// });
+
+// prevBtn.addEventListener('click', function(){
+//  counter--;
+//   carousel();
+// });
+
+// function carousel(){
+//  // working with slides
+//  if(counter === slides.length){
+//   counter=0;
+//  }
+//  if(counter < 0){
+//   counter = slides.length - 1;
+//  }
+
+//  // working with slider buttons
+//  slides.forEach(function(slide){
+//   slide.style.transform = `translateX(-${counter * 100}%)`
+//  });
+// }

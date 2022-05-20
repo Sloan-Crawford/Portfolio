@@ -15,6 +15,10 @@
   </head>
 
   <body>
+    <!-- scroll-up button -->
+    <div class="scroll-up-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
     <!-- Nav -->
     <nav class="navbar">
       <div class="max-width">
@@ -24,11 +28,11 @@
           /></a>
         </div>
         <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Skills & Services</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#home" class="menu-btn">Home</a></li>
+          <li><a href="#about" class="menu-btn">About</a></li>
+          <li><a href="#skills" class="menu-btn">Skills & Services</a></li>
+          <li><a href="#projects" class="menu-btn">Projects</a></li>
+          <li><a href="#contact" class="menu-btn">Contact</a></li>
         </ul>
         <div class="menu-btn">
           <i class="fa fa-bars" aria-hidden="true"></i>
@@ -42,7 +46,7 @@
         <div class="home-content">
           <div class="text-1">Hello, my name is</div>
           <div class="text-2">Sloan Crawford</div>
-          <div class="text-3">and I'm a <span>Developer</span></div>
+          <div class="text-3">and I'm a <span class="typing"></span></div>
         </div>
         <div class="hire-container">
           <a href="#">Hire Me</a>
@@ -56,7 +60,9 @@
         <h2 class="title">About Me</h2>
         <div class="about-content">
           <div class="column left">
-            <div class="text">I'm Sloan and I'm a <span>Developer</span></div>
+            <div class="text">
+              I'm Sloan and I'm a <span class="typing-2"></span>
+            </div>
             <p>
               As a burgeoning and enthusiastic web developer, I delight in
               building visually aesthetic, responsive and accessible websites
@@ -322,7 +328,7 @@
           <div class="card">
             <div class="box">
               <div class="project-logo">
-                <button id="open" class="open-button">
+                <button data-modal="weather" class="open-button">
                   <img
                     src="./images/compressed/WeatherPro-logo-c.png"
                     alt="Weather Pro app"
@@ -332,7 +338,7 @@
                   </div>
                 </button>
                 <!-- Modal Starts -->
-                <div class="modal-container" id="modal_container">
+                <div class="modal-container" id="weather">
                   <div class="modal">
                     <div class="modal-column-left">
                       <div class="modal-image-container">
@@ -405,7 +411,7 @@
                         <ul class="key-features">
                           <li class="feature">
                             <i class="fa fa-check" aria-hidden="true"></i
-                            >Hitting an external, third-party API
+                            >Hitting a third-party API
                           </li>
                           <li class="feature">
                             <i class="fa fa-check" aria-hidden="true"></i>Using
@@ -421,7 +427,232 @@
                         >
                       </div>
                     </div>
-                    <button id="close" class="close-button">
+                    <button class="close-button close">
+                      <i class="fas fa-window-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- Modal ends -->
+              </div>
+              <div class="box-title">A local weather app</div>
+            </div>
+          </div>
+          <!-- card ends -->
+          <!-- card starts -->
+          <div class="card">
+            <div class="box">
+              <div class="project-logo">
+                <button data-modal="look" class="open-button">
+                  <img
+                    src="./images/compressed/LookBook-logo-c.png"
+                    alt="LookBook app"
+                  />
+                  <div class="overlay">
+                    <div class="text">Project details</div>
+                  </div>
+                </button>
+                <!-- Modal Starts -->
+                <div class="modal-container" id="look">
+                  <div class="modal">
+                    <div class="modal-column-left">
+                      <div class="modal-image-container">
+                        <div class="modal-image-box">
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/LookBook-screenshot-1-c.png"
+                              alt="LookBook App 1"
+                            />
+                          </div>
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/LookBook-screenshot-2-c.png"
+                              alt="LookBook App 2"
+                            />
+                          </div>
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/LookBook-screenshot-3-c.png"
+                              alt="LookBook App 3"
+                            />
+                          </div>
+                        </div>
+                        <div class="modal-image-nav">
+                          <button type="button" class="prevBtn">
+                            <i
+                              class="fa fa-arrow-circle-left"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <button type="button" class="nextBtn">
+                            <i
+                              class="fa fa-arrow-circle-right"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-column-right">
+                      <div class="modal-title">LookBook</div>
+                      <div class="modal-description">
+                        <div class="description-summary">
+                          Search your favourite classic books for specific
+                          content!
+                        </div>
+                        <div class="sub-title">Key Features</div>
+                        <ul class="key-features">
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i>Search
+                            functionality and highlighting effects
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Effective requests to the server using Fetch API
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Wrapped in a mini-site
+                          </li>
+                        </ul>
+                        <div class="sub-title">Skills On Display</div>
+                        <ul class="key-features">
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Searching large volumes of text
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i>Using
+                            the Fetch API in Javascript for local web server
+                            content
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="modal-link">
+                        <a
+                          href="https://sloan-weatherpro-js-project.netlify.app/"
+                          target="#"
+                          >Visit Project</a
+                        >
+                      </div>
+                    </div>
+                    <button class="close-button close">
+                      <i class="fas fa-window-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- Modal ends -->
+              </div>
+              <div class="box-title">A book search app</div>
+            </div>
+          </div>
+          <!-- card ends -->
+          <!-- card starts -->
+          <div class="card">
+            <div class="box">
+              <div class="project-logo">
+                <button data-modal="new" class="open-button">
+                  <img
+                    src="./images/compressed/WeatherPro-logo-c.png"
+                    alt="Weather Pro app"
+                  />
+                  <div class="overlay">
+                    <div class="text">Project details</div>
+                  </div>
+                </button>
+                <!-- Modal Starts -->
+                <div class="modal-container" id="new">
+                  <div class="modal">
+                    <div class="modal-column-left">
+                      <div class="modal-image-container">
+                        <div class="modal-image-box">
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/WeatherPro-screenshot-1-c.png"
+                              alt="WeatherPro App 1"
+                            />
+                          </div>
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/WeatherPro-screenshot-2-c.png"
+                              alt="WeatherPro App 2"
+                            />
+                          </div>
+                          <div class="slide">
+                            <img
+                              class="slide-img"
+                              src="./images/compressed/WeatherPro-screenshot-3-c.png"
+                              alt="WeatherPro App 3"
+                            />
+                          </div>
+                        </div>
+                        <div class="modal-image-nav">
+                          <button type="button" class="prevBtn">
+                            <i
+                              class="fa fa-arrow-circle-left"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <button type="button" class="nextBtn">
+                            <i
+                              class="fa fa-arrow-circle-right"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-column-right">
+                      <div class="modal-title">Weather Pro</div>
+                      <div class="modal-description">
+                        <div class="description-summary">
+                          Get accurate weather data displayed beautifully to you
+                          for your exact location.
+                        </div>
+                        <div class="sub-title">Key Features</div>
+                        <ul class="key-features">
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Familiar and looks great
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i>Brings
+                            a great responsive UI using Bootstrap
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Wrapped in a mini-site
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Displays current and future weather conditions
+                          </li>
+                        </ul>
+                        <div class="sub-title">Skills On Display</div>
+                        <ul class="key-features">
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i
+                            >Hitting a third-party API
+                          </li>
+                          <li class="feature">
+                            <i class="fa fa-check" aria-hidden="true"></i>Using
+                            reverse geo-locating
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="modal-link">
+                        <a
+                          href="https://sloan-weatherpro-js-project.netlify.app/"
+                          target="#"
+                          >Visit Project</a
+                        >
+                      </div>
+                    </div>
+                    <button class="close-button close">
                       <i class="fas fa-window-close"></i>
                     </button>
                   </div>
@@ -520,8 +751,9 @@
         ></a>
       </p>
     </footer>
-    <!-- Scripts: JQuery, js functionality -->
+    <!-- Scripts: JQuery, , Typed, js functionality -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

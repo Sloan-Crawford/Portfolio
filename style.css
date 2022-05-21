@@ -270,7 +270,8 @@ section p {
 }
 
 .home-content .text-3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: 300;
   /* margin: 5px 0; */
 }
 
@@ -286,7 +287,7 @@ section p {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.6rem;
 }
 
 .home .hire-container {
@@ -336,12 +337,13 @@ section .title::after {
 .about .about-content .left {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   width: 55%;
   padding-left: 50px;
 }
 
 .about .about-content .left .text {
+  text-align: start;
   font-size: 1.7rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -357,7 +359,10 @@ section .title::after {
 }
 
 .about .about-content .left a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 230px;
   background: var(--crimson);
   color: #fff;
   border: 1px solid #fff;
@@ -401,7 +406,6 @@ section .title::after {
 
 .social-list__link {
   padding: 0.5em 1em;
-
   color: var(--crimson);
   font-size: 1.5rem;
 }
@@ -968,7 +972,7 @@ section.contact .title {
   display: flex;
   align-items: center;
 }
-.right form .button-area button {
+.right form .button-area input {
   color: #fff;
   display: block;
   width: 160px !important;
@@ -983,7 +987,7 @@ section.contact .title {
   border: 2px solid crimson;
   transition: all 0.3s ease;
 }
-.right form .button-area button:hover {
+.right form .button-area input:hover {
   color: crimson;
   background: none;
 }
@@ -1020,6 +1024,15 @@ section.contact .title {
   padding: 1em;
 }
 
+.social-list__link img {
+  max-width: 26px;
+  filter: brightness(110%);
+}
+
+.social-list__link img:hover {
+  filter: brightness(130%);
+}
+
 @media screen and (min-width: 900px) {
   .page-footer {
     font-size: 1.2rem;
@@ -1043,6 +1056,11 @@ section.contact .title {
   }
   .page-footer p {
     margin: 0.15em;
+  }
+
+  .social-list__link {
+    margin: 0 0.2em;
+    padding: 0.4em;
   }
 }
 

@@ -48,7 +48,7 @@ $('.scroll-up-btn').click(function(){
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["Developer...", "Collaborator...", "Designer...", "Gymnast..."],
+        strings: ["Developer", "Collaborator", "Designer", "Gymnast"],
         typeSpeed: 50,
         backDelay: 1000,
         backSpeed: 60,
@@ -58,7 +58,7 @@ $('.scroll-up-btn').click(function(){
     
     // typing text animation script
     var typed = new Typed(".typing-2", {
-        strings: ["Developer...", "Collaborator...", "Designer...", "Gymnast..."],
+        strings: ["Developer", "Collaborator", "Designer", "Gymnast"],
         typeSpeed: 50,
         backDelay: 1000,
         backSpeed: 60,

@@ -94,6 +94,7 @@ modals.forEach(m => {
 
 
 // --------------------My attempt--------------------------:
+let slideShow = slides;
 
 // Modal slider (for screenshots)
 function showSlides(id) {
@@ -101,6 +102,10 @@ function showSlides(id) {
   console.log(m);
   m.classList.add('currentModal');
   console.log(currentModal);
+  slideShow = document.querySelector('.currentModal').getElementsByClassName("slide");
+  console.log(slideShow);
+
+
 }
 
 buttons.forEach(function(b) {
@@ -109,10 +114,11 @@ buttons.forEach(function(b) {
     showSlides(b.dataset.modal);
   });
 });
-const currentModal = document.querySelectorAll('.currentModal');
-console.log(currentModal);
 
-slides.forEach(function(slide, index){
+const currentModal = document.querySelectorAll('.currentModal');
+
+
+slideShow.forEach(function(slide, index){
  slide.style.left = `${index * 100}%`; // translate slide 100% left
 });
 
@@ -127,13 +133,15 @@ prevBtn.addEventListener('click', function(){
   carousel();
 });
 
+// maybe make a promose to render this after opening modal...
 function carousel(){
- // working with slides
- if(counter === slides.length){
+
+ // working with slideShow
+ if(counter === slideShow.length){
   counter=0;
  }
  if(counter < 0){
-  counter = slides.length - 1;
+  counter = slideShow.length - 1;
  }
 
  // working with slider buttons
@@ -142,7 +150,7 @@ function carousel(){
  });
 }
 
-// ----------------------Works with all slides--------------------------:
+// ----------------------Works with all slides on one modal--------------------------:
 
 // slides.forEach(function(slide, index){
 

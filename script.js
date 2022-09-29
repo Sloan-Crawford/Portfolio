@@ -4,10 +4,9 @@ let buttons = document.querySelectorAll('.open-button');
 let modals = document.querySelectorAll('.modal-container');
 
 // For Modal slider buttons
-const slides = document.querySelectorAll('.slide');
-
-const nextBtn = document.querySelector('.nextBtn');
-const prevBtn = document.querySelector('.prevBtn');
+let slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelectorAll('.nextBtn');
+const prevBtn = document.querySelectorAll('.prevBtn');
 
 // Sticky navbar on scroll
 $(document).ready(function() {
@@ -21,7 +20,7 @@ $(document).ready(function() {
   // show/hide scroll to top button
   if(this.scrollY > 500){
     $('.scroll-up-btn').addClass("show");
-  }else{
+  }else {
     $('.scroll-up-btn').removeClass("show");
   }
  });
@@ -66,16 +65,21 @@ $('.scroll-up-btn').click(function(){
         showCursor: false,
     });
 
-
+let slidesArray = [];
+let slideShow = [];
 // Project Section Modals
 function showModal(id) {
   let m = document.getElementById(id);
   m.classList.add('visible');
+  slideShow = document.querySelector('.visible').getElementsByClassName("slide");
+  slidesArray = [...slideShow];
 }
 
 function hideModals() {
   modals.forEach(m => {
     m.classList.remove('visible');
+    slidesArray = [];
+    counter = 0;
   });
 }
 
@@ -83,7 +87,7 @@ buttons.forEach(b => {
   b.addEventListener('click', event => {
     hideModals();
     showModal(b.dataset.modal);
-    // console.log(b.dataset.modal);
+    // showSlides(b.dataset.modal);
   });
 });
 
@@ -93,59 +97,39 @@ modals.forEach(m => {
 });
 
 
+
 // --------------------My attempt--------------------------:
-let slideShow = slides;
-
-// Modal slider (for screenshots)
-function showSlides(id) {
-  let m = document.getElementById(id);
-  console.log(m);
-  m.classList.add('currentModal');
-  console.log(currentModal);
-  slideShow = document.querySelector('.currentModal').getElementsByClassName("slide");
-  console.log(slideShow);
-
-
-}
-
-buttons.forEach(function(b) {
-  b.addEventListener('click', function() {
-    // hideModals();
-    showSlides(b.dataset.modal);
-  });
-});
-
-const currentModal = document.querySelectorAll('.currentModal');
-
-
-slideShow.forEach(function(slide, index){
- slide.style.left = `${index * 100}%`; // translate slide 100% left
-});
 
 let counter = 0;
-nextBtn.addEventListener('click', function(){
- counter++;
- carousel();
-});
-
-prevBtn.addEventListener('click', function(){
- counter--;
+nextBtn.forEach(button => {
+  button.addEventListener('click', event => {
+   counter++;
   carousel();
+})
 });
 
-// maybe make a promose to render this after opening modal...
+prevBtn.forEach(button => {
+button.addEventListener('click', function(){
+  counter--;
+  carousel();
+})
+});
+
 function carousel(){
+  slidesArray.forEach(function(slide, index){
+  slide.style.left = `${index * 100}%`; // translate slide 100% left
+});
 
  // working with slideShow
- if(counter === slideShow.length){
+ if(counter === slidesArray.length){
   counter=0;
  }
  if(counter < 0){
-  counter = slideShow.length - 1;
+  counter = slidesArray.length - 1;
  }
 
  // working with slider buttons
- slides.forEach(function(slide){
+ slidesArray.forEach(function(slide){
   slide.style.transform = `translateX(-${counter * 100}%)`
  });
 }

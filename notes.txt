@@ -1,3 +1,39 @@
 for jQuery:
 -the $() function is as synonym for jQuery() in the jQuery Javascript framework. 
 -It returns a jQuery object (or objects)
+
+
+<p>-HTML5, CSS3, JavaScript, jQuery, Async/Await, Ajax, React.js, Typescript</p>
+<p>-CSS pre-processors including Sass/Scss, Flexbox and Grid</p>
+<p>-Responsive Design, UI Design/Layout frameworks (i.e., Bootstrap) & SEO Principles</p>
+<p>-Data structures, Algorithms, Object-Oriented Design and Design Patterns</p>
+<p>-Git, GitHub, Browser dev tools and deployment (i.e., Netlify)</p>
+<p>-Software development lifecycle and github work flows</p>
+
+
+<!-- card starts -->
+<div class="card">
+  <div class="box">
+    <div class="logos">
+      <img src="./images/compressed/testing-c.png" alt="Testing" />
+    </div>
+    <div class="box-title">In development: Testing</div>
+    <div class="box-text">
+      <ul>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i> high code
+          quality from unit & integration testing
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i> reduced
+          defects and improved design
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i> secure,
+          intact software that can adapt to change
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- card ends -->
